@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.PrintStream;
@@ -23,7 +24,15 @@ public class BoardTest {
     public void shouldPrintBoard()
     {
         board.drawBoard();
-        verify(printStream).println("1|2|3 \n ----- \n 4|5|6 \n ----- \n 7|8|9 \n");
+        verify(printStream).println("1|2|3\n-----\n4|5|6\n-----\n7|8|9\n");
+    }
+
+    @Test
+    public void shouldRedrawTheBoardWithX()
+    {
+        board.drawBoard();
+        board.redrawBoardX("3");
+        verify(printStream).println("1|2|X\n-----\n4|5|6\n-----\n7|8|9\n");
     }
 
 }

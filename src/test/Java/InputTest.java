@@ -25,6 +25,7 @@ public class InputTest {
         bufferedReader = mock(BufferedReader.class);
         printStream = mock(PrintStream.class);
         input = new Input(printStream, bufferedReader);
+
     }
 
     @Test

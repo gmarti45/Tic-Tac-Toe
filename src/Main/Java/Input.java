@@ -8,6 +8,7 @@ import java.io.PrintStream;
 public class Input {
     private BufferedReader bufferedReader;
     private PrintStream printStream;
+    Board board =new Board(printStream);
 
     Input(PrintStream printStream, BufferedReader bufferedReader) {
         this.printStream = printStream;

@@ -12,8 +12,9 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input(System.out, bufferedReader);
         board.drawBoard();
-        input.askPlayerXMark();
+        board.redrawBoardX(input.askPlayerXMark());
 
     }
 
 }
+

@@ -6,17 +6,17 @@ import java.io.PrintStream;
 public class Game {
     PrintStream printStream;
     Board board;
+    Player player;
 
-    public Game(PrintStream printStream, Board board) {
+    public Game(PrintStream printStream, Board board, Player player) {
         this.printStream = printStream;
         this.board = board;
+        this.player = player;
     }
 
     public void start() {
         board.drawBoard();
+        player.tellFirstPlayerMakeMove();
     }
 
-    public void tellFirstPlayerMakeMove() {
-        printStream.println("Make your move:");
-    }
 }

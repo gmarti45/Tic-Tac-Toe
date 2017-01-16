@@ -12,13 +12,15 @@ public class GameTest {
     private Board board;
     private Game game;
     private PrintStream printStream;
+    private Player player;
 
     @Before
     public void setUp()
     {
         board = mock(Board.class);
         printStream = mock(PrintStream.class);
-        game = new Game(printStream, board);
+        player = mock(Player.class);
+        game = new Game(printStream, board, player);
 
 
     }
@@ -33,8 +35,8 @@ public class GameTest {
     @Test
     public void shouldTellFirstPlayerToMakeMoveWhenStarting()
     {
-        game.tellFirstPlayerMakeMove();
-        verify(printStream).println("Make your move:");
+        game.start();
+        verify(player).tellFirstPlayerMakeMove();
     }
 
 

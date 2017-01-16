@@ -8,11 +8,17 @@ import java.io.PrintStream;
 public class Main {
 
     private static PrintStream printStream;
+    private static Board board;
+    private static Game game;
+    private static BufferedReader bufferedReader;
+    private static Player player;
 
     public static void main(String[] args) {
-        Board board = new Board(System.out);
-        Game game = new Game(printStream, board);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        printStream = new PrintStream(System.out);
+        board = new Board(printStream);
+        player = new Player(printStream, bufferedReader);
+        game = new Game(printStream, board, player);
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input(System.out, bufferedReader);
         game.start();
 

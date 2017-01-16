@@ -16,9 +16,9 @@ public class Input {
     }
 
 
-    public String askPlayerXMark() {
+    public String askPlayerXMark() throws IOException {
         printStream.println("Enter a number indicating where you want to place your mark:");
-        String numberEntered = readLine();
+        String numberEntered = bufferedReader.readLine();
         return numberEntered;
     }
 

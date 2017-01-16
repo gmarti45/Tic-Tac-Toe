@@ -1,5 +1,6 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
@@ -13,11 +14,10 @@ public class Board {
     {
         this.printStream =printStream;
     }
-    //ArrayList<String> boardList = new ArrayList();
 
-    public void drawBoard() {
+    public void drawBoard(List<String> boardList) {
         String board;
-        board = "1"+"|"+"2"+"|"+"3\n";
+        board = String.format("1"+"|"+"2"+"|"+"%s\n", boardList.get(2));
         board += "-----\n";
         board += "4"+"|"+"5"+"|"+"6\n";
         board += "-----\n";

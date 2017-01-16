@@ -31,8 +31,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void shouldPrintMessageTellingFirstPlayerToMakeMove()
-    {
+    public void shouldPrintMessageTellingFirstPlayerToMakeMove() throws IOException {
         player.tellFirstPlayerMakeMove();
         verify(printStream).println("Make your move:");
     }

@@ -6,7 +6,7 @@ import java.io.PrintStream;
  * Created by gmartine on 1/15/17.
  */
 public class Player {
-    private final BufferedReader bufferedReader;
+    private BufferedReader bufferedReader;
     PrintStream printStream;
 
     Player(PrintStream printStream, BufferedReader bufferedReader)
@@ -15,11 +15,12 @@ public class Player {
         this.bufferedReader = bufferedReader;
     }
 
-    public String tellFirstPlayerMakeMove() {
+    public String tellFirstPlayerMakeMove() throws IOException {
         printStream.println("Make your move:");
-        String numberEntered = readLine();
-        return numberEntered;
+        String moveEntered = bufferedReader.readLine();
+        return moveEntered;
     }
+
     private String readLine() {
         String numberEntered = null;
         try {

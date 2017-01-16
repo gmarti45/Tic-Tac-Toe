@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.mockito.Mockito.mock;
@@ -26,15 +27,13 @@ public class GameTest {
     }
 
     @Test
-    public void shouldDrawBoardWhenStarting()
-    {
+    public void shouldDrawBoardWhenStarting() throws IOException {
         game.start();
         verify(board).drawBoard();
     }
 
     @Test
-    public void shouldTellFirstPlayerToMakeMoveWhenStarting()
-    {
+    public void shouldTellFirstPlayerToMakeMoveWhenStarting() throws IOException {
         game.start();
         verify(player).tellFirstPlayerMakeMove();
     }

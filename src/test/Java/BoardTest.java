@@ -96,6 +96,58 @@ public class BoardTest {
         assertThat(board.checkIfBoardIsfull(), is(false));
     }
 
+    @Test
+    public void shouldPrintPlayer1WinsWhenPlayer1FillsARow() throws IOException {
+        board.markBoardWithX("1");
+        board.markBoardWithX("2");
+        board.markBoardWithX("3");
+        board.checkIfRowFilled();
+        verify(printStream).println("Player 1 Wins!");
+    }
+
+    @Test
+    public void shouldPrintPlayer2WinsWhenPlayer2FillsARow() throws IOException {
+        board.markBoardWithO("1");
+        board.markBoardWithO("2");
+        board.markBoardWithO("3");
+        board.checkIfRowFilled();
+        verify(printStream).println("Player 2 Wins!");
+    }
+    @Test
+    public void shouldPrintPlayer1WinsWhenPlayer1FillsAColumn() throws IOException {
+        board.markBoardWithX("1");
+        board.markBoardWithX("4");
+        board.markBoardWithX("7");
+        board.checkIfColumnFilled();
+        verify(printStream).println("Player 1 Wins!");
+    }
+
+    @Test
+    public void shouldPrintPlayer2WinsWhenPlayer2FillsAColumn() throws IOException {
+        board.markBoardWithO("1");
+        board.markBoardWithO("4");
+        board.markBoardWithO("7");
+        board.checkIfColumnFilled();
+        verify(printStream).println("Player 2 Wins!");
+    }
+
+    @Test
+    public void shouldPrintPlayer1WinsWhenPlayer1FillsADiagonal() throws IOException {
+        board.markBoardWithX("1");
+        board.markBoardWithX("5");
+        board.markBoardWithX("9");
+        board.checkIfDiagonalFilled();
+        verify(printStream).println("Player 1 Wins!");
+    }
+
+    @Test
+    public void shouldPrintPlayer2WinsWhenPlayer2FillsADiagonal() throws IOException {
+        board.markBoardWithO("7");
+        board.markBoardWithO("5");
+        board.markBoardWithO("3");
+        board.checkIfDiagonalFilled();
+        verify(printStream).println("Player 2 Wins!");
+    }
 
 
 

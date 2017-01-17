@@ -20,10 +20,10 @@ public class Game {
 
     public void start() throws IOException {
         board.drawBoard();
-        while(board.checkIfBoardIsfull()==false)
+        while(board.checkIfBoardIsfull()==false & board.checkIfRowFilled()==false & board.checkIfColumnFilled()==false & board.checkIfDiagonalFilled() ==false)
         {
             player.tellFirstPlayerMakeMove();
-            if(board.checkIfBoardIsfull()==true)
+            if(board.checkIfBoardIsfull()==true | board.checkIfRowFilled()== true |board.checkIfColumnFilled()== true | board.checkIfDiagonalFilled() ==true)
             {
                 break;
             }

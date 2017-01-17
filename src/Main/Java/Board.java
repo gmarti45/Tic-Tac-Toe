@@ -78,6 +78,59 @@ public class Board {
         return result;
 
     }
+
+    public boolean checkIfRowFilled(){
+        boolean result= false;
+        String row1 = boardList.get(0)+boardList.get(1)+boardList.get(2);
+        String row2 = boardList.get(3)+boardList.get(4)+boardList.get(5);
+        String row3 = boardList.get(6)+boardList.get(7)+boardList.get(8);
+        if(row1.equals("XXX")|row2.equals("XXX")|row3.equals("XXX"))
+        {
+            result = true;
+            printStream.println("Player 1 Wins!");
+        }
+        if(row1.equals("OOO")|row2.equals("OOO")|row3.equals("OOO"))
+        {
+            result = true;
+            printStream.println("Player 2 Wins!");
+        }
+        return result;
+
+
+    } public boolean checkIfColumnFilled(){
+        boolean result= false;
+        String column1 = boardList.get(0)+boardList.get(3)+boardList.get(6);
+        String column2 = boardList.get(1)+boardList.get(4)+boardList.get(7);
+        String column3 = boardList.get(2)+boardList.get(5)+boardList.get(8);
+        if(column1.equals("XXX")|column2.equals("XXX")|column3.equals("XXX"))
+        {
+            result = true;
+            printStream.println("Player 1 Wins!");
+        }
+        if(column1.equals("OOO")|column2.equals("OOO")|column3.equals("OOO"))
+        {
+            result = true;
+            printStream.println("Player 2 Wins!");
+        }
+        return result;
+    }
+
+    public boolean checkIfDiagonalFilled(){
+        boolean result= false;
+        String diagonal1 = boardList.get(0)+boardList.get(4)+boardList.get(8);
+        String diagonal2 = boardList.get(2)+boardList.get(4)+boardList.get(6);
+        if(diagonal1.equals("XXX")|diagonal2.equals("XXX"))
+        {
+            result = true;
+            printStream.println("Player 1 Wins!");
+        }
+        if(diagonal1.equals("OOO")|diagonal2.equals("OOO"))
+        {
+            result = true;
+            printStream.println("Player 2 Wins!");
+        }
+        return result;
+    }
 }
 
 

@@ -52,6 +52,17 @@ public class Board {
         boardList.set(locationNumber-1, "O");
         drawBoard();
     }
+
+    public boolean checkIfLocationIsTaken(String cell) {
+        if(boardList.contains(cell))
+        {
+            return false;
+        }
+            printStream.println("Location Already Taken");
+
+        return true;
+
+    }
 }
 
 

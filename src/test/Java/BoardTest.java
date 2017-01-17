@@ -48,9 +48,19 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldPrintBoardWithOInCell4() throws IOException {
+    public void shouldPrintBoardWithOInCell4andXInCell3() throws IOException {
+        board.markBoardWithX("3");
         board.markBoardWithO("4");
-        verify(printStream).println("1|2|3\n-----\nO|5|6\n-----\n7|8|9\n");
+        verify(printStream).println("1|2|X\n-----\nO|5|6\n-----\n7|8|9\n");
     }
+    @Test
+    public void shouldPrintLocationAlreadyTaken() throws IOException {
+        board.markBoardWithX("3");
+        board.markBoardWithO("4");
+        board.checkIfLocationIsTaken("3");
+        verify(printStream).println("Location Already Taken");
+    }
+
+
 
 }

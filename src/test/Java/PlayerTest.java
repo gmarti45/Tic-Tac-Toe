@@ -56,4 +56,11 @@ public class PlayerTest {
         assertThat(player.tellSecondPlayerMakeMove(), is("3"));
     }
 
+    @Test
+    public void shouldPromptSecondPlayerUntilEnterAvailableLocation() throws IOException {
+        when(bufferedReader.readLine()).thenReturn("3").thenReturn("3");
+        player.tellSecondPlayerMakeMove();
+        verify(printStream).println("Make your move:");
+    }
+
 }

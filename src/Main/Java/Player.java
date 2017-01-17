@@ -20,6 +20,11 @@ public class Player {
     public String tellFirstPlayerMakeMove() throws IOException {
         printStream.println("Make your move:");
         String moveEntered = bufferedReader.readLine();
+        while(board.checkIfLocationIsTaken(moveEntered)==true)
+        {
+            printStream.println("Make your move:");
+            moveEntered = bufferedReader.readLine();
+        }
         board.markBoardWithX(moveEntered);
         return moveEntered;
     }
@@ -37,7 +42,12 @@ public class Player {
     public String tellSecondPlayerMakeMove() throws IOException {
         printStream.println("Make your move:");
         String moveEntered = bufferedReader.readLine();
-        //board.markBoardWithX(moveEntered);
+        while(board.checkIfLocationIsTaken(moveEntered)==true)
+        {
+            printStream.println("Make your move:");
+            moveEntered = bufferedReader.readLine();
+        }
+        board.markBoardWithO(moveEntered);
         return moveEntered;
     }
 }

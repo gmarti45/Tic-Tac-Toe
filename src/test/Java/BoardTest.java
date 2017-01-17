@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -60,6 +62,41 @@ public class BoardTest {
         board.checkIfLocationIsTaken("3");
         verify(printStream).println("Location Already Taken");
     }
+    @Test
+    public void shouldBeTrueThatTheBoardFull() throws IOException {
+        board.markBoardWithX("1");
+        board.markBoardWithO("2");
+        board.markBoardWithX("3");
+        board.markBoardWithO("4");
+        board.markBoardWithX("5");
+        board.markBoardWithO("6");
+        board.markBoardWithX("7");
+        board.markBoardWithO("8");
+        board.markBoardWithX("9");
+        board.checkIfBoardIsfull();
+        assertThat(board.checkIfBoardIsfull(), is(true));
+    }
+    @Test
+    public void shouldPrintGameIsADraw() throws IOException {
+        board.markBoardWithX("1");
+        board.markBoardWithO("2");
+        board.markBoardWithX("3");
+        board.markBoardWithO("4");
+        board.markBoardWithX("5");
+        board.markBoardWithO("6");
+        board.markBoardWithX("7");
+        board.markBoardWithO("8");
+        board.markBoardWithX("9");
+        board.checkIfBoardIsfull();
+        verify(printStream).println("Game is a draw");
+    }
+    @Test
+    public void shouldBeFalseThatTheBoardFull() throws IOException {
+        board.markBoardWithX("1");
+        assertThat(board.checkIfBoardIsfull(), is(false));
+    }
+
+
 
 
 

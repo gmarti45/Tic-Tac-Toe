@@ -21,10 +21,6 @@ public class Board {
         this.player = player;
     }
 
-//    public void createInitialBoardNumbers(){
-//        List<String> boardList = new ArrayList<String>();
-//        boardList.addAll(Arrays.asList("1","2","3","4","5","6","7","8","9"));
-//    }
 
 
     public void drawBoard() {
@@ -61,6 +57,25 @@ public class Board {
             printStream.println("Location Already Taken");
 
         return true;
+
+    }
+
+    public boolean checkIfBoardIsfull() {
+        Boolean result = true;
+        for(int cellNum = 1; cellNum<10; cellNum++)
+        {
+            String cell = Integer.toString(cellNum);
+            if(boardList.contains(cell))
+            {
+                result =false;
+            }
+        }
+        if(result==true)
+        {
+            printStream.println("Game is a draw");
+        }
+
+        return result;
 
     }
 }

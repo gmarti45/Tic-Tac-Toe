@@ -29,25 +29,25 @@ public class GameTest {
 
     }
 
-    @Test
-    public void shouldDrawBoardWhenStarting() throws IOException {
-        //List<String> boardList = new ArrayList<String>();
-        //boardList.addAll(Arrays.asList("1","2","3","4","5","6","7","8","9"));
-        game.start();
-        verify(board).drawBoard();
-    }
+//    @Test
+//    public void shouldDrawBoardWhenStarting() throws IOException {
+//        //List<String> boardList = new ArrayList<String>();
+//        //boardList.addAll(Arrays.asList("1","2","3","4","5","6","7","8","9"));
+//        game.start();
+//        verify(board).drawBoard();
+//    }
 
-    @Test
-    public void shouldTellFirstPlayerMakeMoveWhenStarting() throws IOException {
-        game.start();
-        verify(player).tellFirstPlayerMakeMove();
-    }
-
-    @Test
-    public void shouldTellSecondPlayerMakeMoveWhenStarting() throws IOException {
-        game.start();
-        verify(player).tellSecondPlayerMakeMove();
-    }
+//    @Test
+//    public void shouldTellFirstPlayerMakeMoveWhenStarting() throws IOException {
+//        game.start();
+//        verify(player).tellFirstPlayerMakeMove();
+//    }
+//
+//    @Test
+//    public void shouldTellSecondPlayerMakeMoveWhenStarting() throws IOException {
+//        game.start();
+//        verify(player).tellSecondPlayerMakeMove();
+//    }
 
 
 

@@ -20,8 +20,16 @@ public class Game {
 
     public void start() throws IOException {
         board.drawBoard();
-        player.tellFirstPlayerMakeMove();
-        player.tellSecondPlayerMakeMove();
+        while(board.checkIfBoardIsfull()==false)
+        {
+            player.tellFirstPlayerMakeMove();
+            if(board.checkIfBoardIsfull()==true)
+            {
+                break;
+            }
+            player.tellSecondPlayerMakeMove();
+        }
+
     }
 
 

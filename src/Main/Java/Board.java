@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -9,27 +11,47 @@ import static java.lang.Integer.parseInt;
  */
 public class Board {
     private PrintStream printStream;
+    private List<String> boardList;
+    private Player player;
 
-    Board(PrintStream printStream)
+    Board(PrintStream printStream, List<String> boardList, Player player)
     {
         this.printStream =printStream;
+        this.boardList = boardList;
+        this.player = player;
     }
 
-    public void drawBoard(List<String> boardList) {
-        String board;
-        board = String.format("1"+"|"+"2"+"|"+"%s\n", boardList.get(2));
-        board += "-----\n";
-        board += "4"+"|"+"5"+"|"+"6\n";
-        board += "-----\n";
-        board += "7"+"|"+"8"+"|"+"9\n";
+//    public void createInitialBoardNumbers(){
+//        List<String> boardList = new ArrayList<String>();
+//        boardList.addAll(Arrays.asList("1","2","3","4","5","6","7","8","9"));
+//    }
+
+
+    public void drawBoard() {
+        String board ="";
+        for(int cell = 0; cell<7; cell =cell+3)
+        {
+            board += String.format("%s|%s|%s\n", boardList.get(cell), boardList.get(cell+1), boardList.get(cell+2));
+            if(cell==0 |cell==3)
+            {
+                board +="-----\n";
+            }
+
+        }
         printStream.println(board);
     }
 
-//    public void redrawBoardX(String s) {
-//        int locationNumber = parseInt(s);
-//        boardList.set(locationNumber, "X");
-//        drawBoard();
-//    }
+    public void markBoardWithX(String cell) throws IOException {
+        int locationNumber = parseInt(cell);
+        boardList.set(locationNumber-1, "X");
+        drawBoard();
+    }
+
+    public void markBoardWithO(String cell) {
+        int locationNumber = parseInt(cell);
+        boardList.set(locationNumber-1, "O");
+        drawBoard();
+    }
 }
 
 

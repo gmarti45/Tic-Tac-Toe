@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by gmartine on 1/13/17.
@@ -8,7 +10,9 @@ import java.io.PrintStream;
 public class Input {
     private BufferedReader bufferedReader;
     private PrintStream printStream;
-    Board board =new Board(printStream);
+    private Player player;
+    List<String> boardList = new ArrayList<String>();
+    Board board =new Board(printStream, boardList, player);
 
     Input(PrintStream printStream, BufferedReader bufferedReader) {
         this.printStream = printStream;

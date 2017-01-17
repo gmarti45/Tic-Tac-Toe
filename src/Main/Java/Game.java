@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,9 +19,11 @@ public class Game {
     }
 
     public void start() throws IOException {
-        List<String> boardList;
         board.drawBoard();
         player.tellFirstPlayerMakeMove();
+        player.tellSecondPlayerMakeMove();
     }
+
+
 
 }

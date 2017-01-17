@@ -20,12 +20,14 @@ public class PlayerTest {
     private PrintStream printStream;
     private Player player;
     private BufferedReader bufferedReader;
+    private Board board;
 
     @Before
     public void setUp() throws Exception {
         printStream = mock(PrintStream.class);
         bufferedReader = mock(BufferedReader.class);
-        player = new Player(printStream, bufferedReader);
+        board = mock(Board.class);
+        player = new Player(printStream, bufferedReader, board);
 
 
     }
@@ -37,9 +39,21 @@ public class PlayerTest {
     }
 
     @Test
-    public void shouldPromptUserWhenMakingMove() throws IOException {
+    public void shouldPromptFirstPlayerWhenMakingMove() throws IOException {
         when(bufferedReader.readLine()).thenReturn("3");
         assertThat(player.tellFirstPlayerMakeMove(), is("3"));
+    }
+
+    @Test
+    public void shouldPrintMessageTellingSecondPlayerToMakeMove() throws IOException {
+        player.tellSecondPlayerMakeMove();
+        verify(printStream).println("Make your move:");
+    }
+
+    @Test
+    public void shouldPromptSecondPlayerWhenMakingMove() throws IOException {
+        when(bufferedReader.readLine()).thenReturn("3");
+        assertThat(player.tellSecondPlayerMakeMove(), is("3"));
     }
 
 }

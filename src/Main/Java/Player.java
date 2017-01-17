@@ -7,17 +7,20 @@ import java.io.PrintStream;
  */
 public class Player {
     private BufferedReader bufferedReader;
-    PrintStream printStream;
+    private PrintStream printStream;
+    private Board board;
 
-    Player(PrintStream printStream, BufferedReader bufferedReader)
+    Player(PrintStream printStream, BufferedReader bufferedReader, Board board)
     {
         this.printStream = printStream;
         this.bufferedReader = bufferedReader;
+        this.board = board;
     }
 
     public String tellFirstPlayerMakeMove() throws IOException {
         printStream.println("Make your move:");
         String moveEntered = bufferedReader.readLine();
+        board.markBoardWithX(moveEntered);
         return moveEntered;
     }
 
@@ -29,5 +32,12 @@ public class Player {
             e.printStackTrace();
         }
         return numberEntered ;
+    }
+
+    public String tellSecondPlayerMakeMove() throws IOException {
+        printStream.println("Make your move:");
+        String moveEntered = bufferedReader.readLine();
+        //board.markBoardWithX(moveEntered);
+        return moveEntered;
     }
 }
